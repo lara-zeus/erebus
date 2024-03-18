@@ -1,0 +1,65 @@
+<?php
+
+namespace LaraZeus\Erebus\Filament\Clusters\Employees\Resources\RoleResource\RelationManager;
+
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Tables\Actions\AttachAction;
+use Filament\Tables\Actions\DetachAction;
+use Filament\Tables\Actions\DetachBulkAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\PermissionRegistrar;
+
+class PermissionRelationManager extends RelationManager
+{
+    protected static string $relationship = 'permissions';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    /*
+     * Support changing tab title by translations in RelationManager.
+     */
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
+    {
+        return 'permissions';
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form->schema([
+            TextInput::make('name')
+                ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name')),
+            TextInput::make('guard_name')
+                ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name')),
+        ]);
+    }
+
+    public function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('name')
+                    ->searchable()
+                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.name')),
+                TextColumn::make('guard_name')
+                    ->searchable()
+                    ->label(__('filament-spatie-roles-permissions::filament-spatie.field.guard_name')),
+            ])
+            ->actions([
+                DetachAction::make()->after(fn () => app()->make(PermissionRegistrar::class)->forgetCachedPermissions()),
+            ])
+            ->bulkActions([
+                DetachBulkAction::make()->after(fn (
+                ) => app()->make(PermissionRegistrar::class)->forgetCachedPermissions()),
+            ])
+            ->heading(__('filament-spatie-roles-permissions::filament-spatie.section.permissions'))
+            ->headerActions([
+                AttachAction::make('Attach Permission')->preloadRecordSelect()->after(fn () => app()
+                    ->make(PermissionRegistrar::class)
+                    ->forgetCachedPermissions()),
+            ]);
+    }
+}
