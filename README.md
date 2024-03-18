@@ -4,6 +4,16 @@
 
 <h4 align="center">Lara-zeus Erebus, subscriptions, plans, invoices, and features manager</h4>
 
+<p align="center">
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/lara-zeus/erebus.svg?style=flat-square)](https://packagist.org/packages/lara-zeus/erebus)
+[![Tests](https://img.shields.io/github/actions/workflow/status/lara-zeus/erebus/run-tests.yml?label=tests&style=flat-square&branch=main)](https://github.com/lara-zeus/erebus/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![Code Style](https://img.shields.io/github/actions/workflow/status/lara-zeus/erebus/fix-php-code-style-issues.yml?label=code-style&flat-square)](https://github.com/lara-zeus/erebus/actions?query=workflow%3Afix-php-code-style-issues+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/lara-zeus/erebus.svg?style=flat-square)](https://packagist.org/packages/lara-zeus/erebus)
+[![Total Downloads](https://img.shields.io/github/stars/lara-zeus/erebus?style=flat-square)](https://github.com/lara-zeus/erebus)
+
+</p>
+
 ## Support Filament
 
 <a href="https://github.com/sponsors/danharrin">
