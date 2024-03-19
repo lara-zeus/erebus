@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://larazeus.com"><img src="https://larazeus.com/images/erebus-banner.png?v=1" /></a>
+<a href="https://larazeus.com"><img src="https://larazeus.com/images/lara-zeus-erebus.png?v=1" /></a>
 </p>
 
 <h4 align="center">Lara-zeus Erebus, subscriptions, plans, invoices, and features manager</h4>
