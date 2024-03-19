@@ -5,6 +5,7 @@ namespace LaraZeus\Erebus;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use LaraZeus\Erebus\Filament\Pages\UserProfile;
 
 final class ErebusPlugin implements Plugin
 {
@@ -20,8 +21,8 @@ final class ErebusPlugin implements Plugin
     {
         $panel
             ->discoverClusters(in: __DIR__ . '/Filament/Clusters', for: 'LaraZeus\\Erebus\\Filament\\Clusters')
-            ->resources([
-                //
+            ->pages([
+                UserProfile::class,
             ]);
     }
 

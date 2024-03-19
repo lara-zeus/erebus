@@ -6,16 +6,19 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use LaraZeus\Chaos\Filament\ChaosResource;
 use LaraZeus\Chaos\Filament\ChaosResource\ChaosTables;
+use LaraZeus\Erebus\ErebusPlugin;
 use LaraZeus\Erebus\Filament\Clusters\Employees\Resources\NotificationResource\Pages;
-use LaraZeus\Erebus\Models\Notification;
 
 class NotificationResource extends ChaosResource
 {
     protected static bool $isScopedToTenant = true;
 
-    protected static ?string $model = Notification::class;
-
     protected static bool $shouldRegisterNavigation = false;
+
+    public static function getModel(): string
+    {
+        return ErebusPlugin::get()->getModel('Notification');
+    }
 
     public static function table(Table $table): Table
     {
