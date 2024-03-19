@@ -17,6 +17,7 @@ class ErebusServiceProvider extends PackageServiceProvider
             ->hasCommands([
                 InstallCommand::class,
             ])
+            ->hasViews()
             ->hasTranslations();
     }
 }

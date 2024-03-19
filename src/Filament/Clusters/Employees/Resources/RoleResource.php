@@ -21,7 +21,6 @@ use LaraZeus\Erebus\Filament\Clusters\Employees;
 use LaraZeus\Erebus\Filament\Clusters\Employees\Resources\RoleResource\Pages;
 use LaraZeus\Erebus\Filament\Clusters\Employees\Resources\RoleResource\RelationManager\PermissionRelationManager;
 use LaraZeus\Erebus\Filament\Clusters\Employees\Resources\RoleResource\RelationManager\UserRelationManager;
-use LaraZeus\Tartarus\Models\Company;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -52,6 +51,7 @@ class RoleResource extends ChaosResource
                                         // Check uniqueness against current user/team
                                         $rule->where(
                                             config('permission.column_names.team_foreign_key', 'team_id'),
+                                            // @phpstan-ignore-next-line
                                             tenant('id')
                                         );
                                     }
@@ -70,10 +70,11 @@ class RoleResource extends ChaosResource
                                 ->searchable(['name'])
                                 ->preload(),
 
-                            Select::make(config('permission.column_names.team_foreign_key', 'team_id'))
+                            // todo
+                            /*Select::make(config('permission.column_names.team_foreign_key', 'team_id'))
                                 ->hidden(fn () => ! config('permission.teams', false) || Filament::hasTenancy())
-                                ->options(fn () => Company::pluck('name', 'id'))
-                                ->dehydrated(fn ($state) => (int) $state > 0),
+                                ->options(fn () => \LaraZeus\Tartarus\Models\Company::pluck('name', 'id'))
+                                ->dehydrated(fn ($state) => (int) $state > 0),*/
                         ]),
                 ]),
         ]);

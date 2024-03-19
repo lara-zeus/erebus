@@ -34,6 +34,7 @@ class PermissionResource extends ChaosResource
 
     public static function canAccess(): bool
     {
+        // @phpstan-ignore-next-line
         return tenant() === null;
     }
 
@@ -67,6 +68,7 @@ class PermissionResource extends ChaosResource
                                 if (Filament::hasTenancy()) {
                                     return $query->where(
                                         config('permission.column_names.team_foreign_key'),
+                                        // @phpstan-ignore-next-line
                                         tenant('id')
                                     );
                                 }

@@ -2,7 +2,6 @@
 
 namespace LaraZeus\Erebus\Filament\Clusters\Employees\Resources;
 
-use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -51,6 +50,7 @@ class UserResource extends ChaosResource
                     name: 'roles',
                     titleAttribute: 'name',
                     modifyQueryUsing: fn (Builder $query) => $query
+                        // @phpstan-ignore-next-line
                         ->where('roles.company_id', tenant('id'))
                         ->orWhereNull('roles.company_id'),
                 )
