@@ -14,4 +14,9 @@ class Employees extends Cluster
     {
         return __('zeus-erebus::erebus.employees_cluster_label');
     }
+
+    public static function getClusterBreadcrumb(): ?string
+    {
+        return __('zeus-erebus::erebus.employees_cluster_label');
+    }
 }
