@@ -36,8 +36,7 @@
         "lara-zeus/chaos": "^1.0",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-permission": "^6.4",
-        "stechstudio/filament-impersonate": "^3.6",
-        "z3d0x/filament-logger": "^0.7.0"
+        "stechstudio/filament-impersonate": "^3.6"
     },
     "require-dev": {
         "nunomaduro/collision": "^7.0",
